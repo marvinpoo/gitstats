@@ -1,5 +1,6 @@
 ---
 name: Feature Request
+about: Use this template for tracking and requesting new features.
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''
