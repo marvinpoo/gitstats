@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 222 47% 11%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 5.9% 90%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 5% 34%;
+    --accent: 240 5% 84%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 82%;
+    --input: 240 5.9% 82%;
+    --ring: 222 47% 11%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+
+  .retro {
+    --background: 240 100% 5%;
+    --foreground: 120 100% 50%;
+    --card: 240 100% 10%;
+    --card-foreground: 120 100% 60%;
+    --popover: 240 100% 10%;
+    --popover-foreground: 120 100% 60%;
+    --primary: 300 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 240 50% 20%;
+    --muted-foreground: 120 50% 70%;
+    --accent: 60 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 0%;
+    --border: 300 100% 50%;
+    --input: 240 50% 20%;
+    --ring: 300 100% 50%;
+    --radius: 0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Improve focus visibility for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+}
+
+/* Add this at the end of the file */
+html.dark {
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+html.retro {
+  color-scheme: dark;
+  font-family: "Courier New", monospace;
+}
+
+/* Ensure dark mode is properly applied in embeds */
+html.dark body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Retro theme specific styles */
+html.retro body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  text-shadow: 0.1em 0.1em 0 rgba(255, 0, 255, 0.5), -0.1em -0.1em 0 rgba(0, 255, 255, 0.5);
+  image-rendering: pixelated;
+}
+
+html.retro * {
+  font-family: "Courier New", monospace;
+  letter-spacing: 0.05em;
+}
+
+html.retro button,
+html.retro .button,
+html.retro [role="button"] {
+  box-shadow: 0.2em 0.2em 0 rgba(255, 0, 255, 0.8);
+  transition: all 0.1s ease;
+  transform: translate(0, 0);
+}
+
+html.retro button:active,
+html.retro .button:active,
+html.retro [role="button"]:active {
+  box-shadow: 0 0 0 rgba(255, 0, 255, 0.8);
+  transform: translate(0.2em, 0.2em);
+}
+
+html.retro input,
+html.retro select,
+html.retro textarea {
+  border: 0.2em solid hsl(var(--border));
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+html.retro .card {
+  box-shadow: 0.4em 0.4em 0 rgba(255, 0, 255, 0.5);
+  border: 0.2em solid hsl(var(--border));
+}
+
+/* Glitch animation for headings */
+html.retro h1,
+html.retro h2,
+html.retro h3 {
+  position: relative;
+  animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* Scanline effect */
+html.retro::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Pixelated borders */
+html.retro .border {
+  border-width: 0.2em;
+  border-style: solid;
+  image-rendering: pixelated;
+}
+
