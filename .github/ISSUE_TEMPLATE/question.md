@@ -1,5 +1,6 @@
 ---
 name: Question
+about: Use this template for questions.
 title: '[QUESTION] '
 labels: question
 assignees: ''
