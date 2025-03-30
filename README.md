@@ -1,6 +1,8 @@
 # GitStats
-
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+**Legal:**<br />
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)<br />
+**Server Stack:**<br />
+[![Netlify Status](https://api.netlify.com/api/v1/badges/02b09d1f-3185-4c83-a972-8e21eb509e00/deploy-status)](https://app.netlify.com/sites/githubrepodashboard/deploys)
 
 GitStats is a powerful dashboard for visualizing and analyzing GitHub repository statistics. It provides insights into repository activity, including commits, issues, pull requests, and more.
 
