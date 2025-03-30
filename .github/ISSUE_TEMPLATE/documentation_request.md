@@ -1,5 +1,6 @@
 ---
 name: Documentation Request
+about: Use this template to request documentation.
 title: '[DOCS] '
 labels: documentation
 assignees: ''
