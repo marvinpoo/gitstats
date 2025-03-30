@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Alert, AlertDescription } from "@/components/ui/alert"
@@ -19,6 +19,14 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   const { theme, setTheme } = useTheme()
+  
+  // Fix: Only access window object on the client side
+  const [domainUrl, setDomainUrl] = useState("")
+  
+  // useEffect will only run on the client side
+  useEffect(() => {
+    setDomainUrl(window.location.origin + "/")
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -44,9 +52,6 @@ export default function Home() {
       setIsLoading(false)
     }
   }
-
-  // Adding domain variable at the top of the component
-  const domainUrl = window.location.origin + "/"
 
   return (
     <main className="container mx-auto py-10 px-4 max-w-6xl">
